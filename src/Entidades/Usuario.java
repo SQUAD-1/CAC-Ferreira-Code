@@ -1,8 +1,5 @@
 package Entidades;
 
-import Attr.*;
-import Objetos.*;
-
 public abstract class Usuario {
     private static int id;
     private String nome;
