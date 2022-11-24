@@ -11,7 +11,7 @@ public abstract class Usuario {
     private float classificação;
     private String equipe;
     private String estado;
-
+    
     //Getters e Setters
 
     public static int getId() {

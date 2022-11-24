@@ -2,6 +2,11 @@ package Grupos;
 import java.util.Dictionary;
 
 public class Setor {
+
+	public Setor(String nome, String unidade){
+		this.nome = nome;
+		this.unidade = unidade;
+	}
 	
 	private static int id;
 	private String nome;

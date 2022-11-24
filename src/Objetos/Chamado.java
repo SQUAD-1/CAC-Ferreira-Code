@@ -9,7 +9,7 @@ import Attr.*;
 
 public class Chamado {
 
-	Chamado(Cliente cliente, String motivo, String canal, String prioridade, String tipo, Setor setor, String impacto, String descricao, Atendimento atendimento){
+	public Chamado(Cliente cliente, String motivo, String canal, String prioridade, String tipo, Setor setor, String impacto, String descricao, Atendimento atendimento){
 		nChamado = Chamado.nChamado++;
 		dataAbertura = LocalDateTime.now();
 		linhaDoTempo.add(new Evento("Chamada criada em " + dataAbertura, dataAbertura));
@@ -22,6 +22,22 @@ public class Chamado {
 		this.setor.add(setor);
 		this.impacto = impacto;
 		this.descricao = descricao;
+		this.atendimento.add(atendimento);
+	}
+
+	public Chamado(Cliente cliente, Atendimento atendimento, String tipo, String impacto, String prioridade){
+		nChamado = Chamado.nChamado++;
+		dataAbertura = LocalDateTime.now();
+		linhaDoTempo.add(new Evento("Chamada criada em " + dataAbertura, dataAbertura));
+
+		this.cliente = cliente;
+		this.motivo = atendimento.getMotivo();
+		this.canal = atendimento.getCanal();
+		this.prioridade = prioridade;
+		this.tipo = tipo;
+		this.setor = atendimento.getSetor();
+		this.impacto = impacto;
+		this.descricao = atendimento.getDescricao();
 		this.atendimento.add(atendimento);
 	}
 	

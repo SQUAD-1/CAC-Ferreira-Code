@@ -1,7 +1,7 @@
 package Objetos;
 
 public class Produto {
-	Produto(String codigo, String nome, float preco, String modelo, String fabricante, int garantia, String categoria, String responsavelCompra){
+	public Produto(String codigo, String nome, float preco, String modelo, String fabricante, int garantia, String categoria, String responsavelCompra){
 
 		this.codigo = codigo;
 		this.nome = nome;
@@ -14,7 +14,7 @@ public class Produto {
 
 	}
 
-	Produto(String codigo, String nome, float preco, String fabricante, int garantia, String categoria, String responsavelCompra){
+	public Produto(String codigo, String nome, float preco, String fabricante, int garantia, String categoria, String responsavelCompra){
 
 		this.codigo = codigo;
 		this.nome = nome;
@@ -26,7 +26,7 @@ public class Produto {
 
 	}
 
-	Produto(String nome, float preco, String fabricante, int garantia, String categoria, String responsavelCompra){
+	public Produto(String nome, float preco, String fabricante, int garantia, String categoria, String responsavelCompra){
 
 		//criar função para criar o código do produto
 

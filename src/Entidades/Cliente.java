@@ -8,7 +8,7 @@ import Objetos.*;
 
 public class Cliente {
 
-	Cliente(String nome, Date dataNascimento, String CPF, String RG){
+	public Cliente(String nome, Date dataNascimento, String CPF, String RG){
 		id = Cliente.id ++;
 		this.nomeCompleto = nome;
 		this.dataNascimento = dataNascimento;
@@ -62,19 +62,19 @@ public class Cliente {
 	public List<Pedido> getListaPedidos() {
 		return listaPedidos;
 	}
-	public void setListaPedidos(Pedido Pedido) {
+	public void addListaPedidos(Pedido Pedido) {
 		this.listaPedidos.add(Pedido);
 	}
 	public List<Chamado> getListaChamados() {
 		return listaChamados;
 	}
-	public void setListaChamados(Chamado Chamado) {
+	public void addListaChamados(Chamado Chamado) {
 		this.listaChamados.add(Chamado);
 	}
 	public List<Atendimento> getListaAtendimentos() {
 		return listaAtendimentos;
 	}
-	public void setListaAtendimentos(Atendimento Atendimento) {
+	public void addListaAtendimentos(Atendimento Atendimento) {
 		this.listaAtendimentos.add(Atendimento);
 	}
 

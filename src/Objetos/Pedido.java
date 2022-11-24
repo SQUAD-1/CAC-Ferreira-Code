@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Pedido {
 
-	Pedido(String notaFiscal, String canalVenda, String Unidade, List<Produto>listaProdutos){
+	public Pedido(String notaFiscal, String canalVenda, String Unidade, List<Produto>listaProdutos){
 		
 		this.n_pedido = Pedido.n_pedido++;
 		
@@ -19,7 +19,7 @@ public class Pedido {
 	Pedido(String notaFiscal, String canalVenda, String Unidade){
 		
 		this.n_pedido = Pedido.n_pedido++;
-		
+	
 		this.notaFiscal = notaFiscal;
 		this.canalVenda = canalVenda;
 		this.Unidade = Unidade;
