@@ -1,5 +1,6 @@
 package Entidades;
 
+import Grupos.*;
 public abstract class Usuario {
 
     //Atríbutos
@@ -14,6 +15,12 @@ public abstract class Usuario {
     
     //Getters e Setters
 
+    public String getEstado() {
+        return estado;
+    }
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
     public static int getId() {
         return id;
     }
@@ -63,9 +70,15 @@ public abstract class Usuario {
         this.estado = "Ativo";
     }
     public void enviarEmail(Usuario destino, String assunto, String mensagem){
-        System.out.printf("Email enviado para %s\nAssunto: %s\n%s",destino.getNome(), assunto, mensagem);
+        System.out.printf("\nEmail enviado para %s\nAssunto: %s\n%s\n--------------------------------------\n",destino.getNome(), assunto, mensagem);
+    }
+    public void enviarEmail(Setor destino, String assunto, String mensagem){
+        System.out.printf("\nEmail enviado para %s\nAssunto: %s\n%s\n--------------------------------------\n",destino.getNome(), assunto, mensagem);
+    }
+    public void enviarEmail(Cliente destino, String assunto, String mensagem){
+        System.out.printf("\nEmail enviado para %s\nAssunto: %s\n%s\n--------------------------------------\n",destino.getNomeCompleto(), assunto, mensagem);
     }
     public void transferirLigação(Usuario destino){
-        System.out.printf("A ligação foi transferida para %s - '%s'\n", destino.getNome());
+        System.out.printf("\nA ligação foi transferida para %s - '%s\n--------------------------------------'\n", destino.getNome());
     }
 }

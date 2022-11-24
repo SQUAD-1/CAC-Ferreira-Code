@@ -8,7 +8,7 @@ import Attr.Evento;
 
 public class Atendimento {
 
-	public Atendimento(Cliente cliente, String motivo, String canal, Setor setor, String descricao){
+	public Atendimento(Cliente cliente, String motivo, String canal, Setor setor){
 		n_atendimento = Atendimento.n_atendimento++;
 		dataAtendimento = LocalDateTime.now();
 		linhaDoTempo.add(new Evento("Atendimento iniciado em " + dataAtendimento, dataAtendimento));
@@ -18,7 +18,6 @@ public class Atendimento {
 		this.canal = canal;
 		this.situacao = "Em andamento";
 		this.setor.add(setor);
-		this.descricao = descricao;
 		this.chamado = false;
 	}
 	
@@ -31,7 +30,6 @@ public class Atendimento {
 	private LocalDateTime dataAtendimento;
 	private Pedido pedido;
 	private List<Setor> setor = new ArrayList<>();
-	private String descricao;
 	private String resolucao;
 	private String situacao;
 	private boolean chamado;
@@ -78,12 +76,6 @@ public class Atendimento {
 	}
 	public void addSetor(Setor setor) {
 		this.setor.add(setor);
-	}
-	public String getDescricao() {
-		return descricao;
-	}
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
 	}
 	public String getResolucao() {
 		return resolucao;

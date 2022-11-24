@@ -5,10 +5,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import Attr.Contato;
 import Objetos.*;
+import Attr.*;
 
 public class Cliente {
 
-	public Cliente(String nome, Date dataNascimento, String CPF, String RG){
+	public Cliente(String nome, String dataNascimento, String CPF, String RG){
 		id = Cliente.id ++;
 		this.nomeCompleto = nome;
 		this.dataNascimento = dataNascimento;
@@ -18,7 +19,7 @@ public class Cliente {
 	
 	private static int id;
 	private String nomeCompleto;
-	private Date dataNascimento;
+	private String dataNascimento;
 	private String CPF;
 	private String RG;
 	private Contato contato;
@@ -35,10 +36,10 @@ public class Cliente {
 	public void alterNomeCompleto(String nomeCompleto) {
 		this.nomeCompleto = nomeCompleto;
 	}
-	public Date getDataNascimento() {
+	public String getDataNascimento() {
 		return dataNascimento;
 	}
-	public void alterDataNascimento(Date dataNascimento) {
+	public void alterDataNascimento(String dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 	public String getCPF() {
@@ -56,8 +57,8 @@ public class Cliente {
 	public Contato getContato() {
 		return contato;
 	}
-	public void setContato(Contato contato) {
-		this.contato = contato;
+	public void setContato(String celular, String email) {
+		this.contato = new Contato(celular, email);
 	}
 	public List<Pedido> getListaPedidos() {
 		return listaPedidos;

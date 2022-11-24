@@ -4,7 +4,7 @@ import Entidades.Usuario;
 
 public class Ligacao {
 
-    Ligacao(String n_telefone, int id_agente){
+    public Ligacao(String n_telefone, int id_agente){
         this.id++;
         this.n_telefone = n_telefone;
         this.id_agente = id_agente;
@@ -59,19 +59,19 @@ public class Ligacao {
     //funções
 
     public boolean encerrar(Usuario agente){
-        System.out.printf("Ligação com o número %s foi encerrada\n", n_telefone, null);
+        System.out.printf("\nLigação com o número %s foi encerrada\n", n_telefone, null);
         this.estado = "Encerrado";
         return true;
     }
     public void emEspera(){
-        System.out.printf("Ligação em espera\n");
+        System.out.printf("\nLigação em espera\n");
         this.estado = "EmEspera";
     }
     public void retomar(){
-        System.out.printf("Ligação em andamento\n");
+        System.out.printf("\nLigação em andamento\n");
         this.estado = "Em andamento";
     }
     public void transferir(Usuario destino){
-        System.out.printf("Ligação foi transferida para %s", destino.getNome());
+        System.out.printf("\nLigação foi transferida para %s\n", destino.getNome());
     }
 }

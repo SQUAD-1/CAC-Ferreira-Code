@@ -7,6 +7,9 @@ import Grupos.*;
 import Objetos.*;
 
 public class Sistema {
+    public Sistema(){
+        System.out.println("Sistema criado!");
+    }
     private List<Atendimento> listaAtendimentos = new ArrayList<>();
     private List<Chamado> listaChamados = new ArrayList<>();
     private List<Pedido> listaPedidos = new ArrayList<>();
@@ -40,7 +43,7 @@ public class Sistema {
 
         else if(tipo.equals("cliente")){
             for (Cliente clientes : listaClientes){
-                if (palavraChave.equals(clientes)){
+                if (palavraChave.contains((CharSequence) clientes)){
                     result = (Object) clientes;
                 }
                 else{
@@ -63,16 +66,18 @@ public class Sistema {
             return result;
         }
 
-        public void abrirAtendimento(Cliente cliente, String motivo, String canal, Setor setor, String descricao){
-
-            listaAtendimentos.add(new Atendimento(cliente,motivo, canal, setor, descricao));
-            cliente.addListaAtendimentos(listaAtendimentos.get(listaAtendimentos.size()-1));
+        public Atendimento abrirAtendimento(Cliente cliente, String motivo, String canal, Setor setor){
+            Atendimento atendimento = new Atendimento(cliente,motivo, canal, setor);
+            listaAtendimentos.add(atendimento);
+            cliente.addListaAtendimentos(atendimento);
+            return atendimento;
         }
 
-        public void abrirChamado(Cliente cliente, Atendimento atendimento String tipo, String tipo,  String prioridade){
-
-            listaChamados.add(new Chamado(cliente, atendimento, tipo, impacto, prioridade));
-            cliente.addListaChamados(listaChamados.get(listaChamados.size()-1));
+        public Chamado abrirChamado(Cliente cliente, Atendimento atendimento, String tipo, String impacto, String prioridade){
+            Chamado chamado = new Chamado(cliente, atendimento, tipo, impacto, prioridade);
+            listaChamados.add(chamado);
+            cliente.addListaChamados(chamado);
+            return chamado;
         }
 
         public void fecharChamado(Chamado chamado){
@@ -88,18 +93,21 @@ public class Sistema {
             listaProdutos.add(new Produto( produto.getCodigo(), produto.getNome(), produto.getPreco(), produto.getFabricante(), produto.getGarantia(), produto.getCategoria(), produto.getResponsavelCompra()));
         }
 
-        public void addSetor(String nome, String unidade){
-            listaSetores.add( new Setor(nome, unidade));
+        public Setor addSetor(String nome, String unidade){
+            Setor setor = new Setor(nome, unidade);
+            listaSetores.add(setor);
+            return setor;
         }
 
-        public void addCliente(String nome, Date dataNascimento, String CPF, String RG){
-            listaClientes.add(new Cliente(nome, dataNascimento, CPF, RG));
+        public Cliente criarCliente(String nome, String dataNascimento, String CPF, String RG){
+            Cliente cliente = new Cliente(nome, dataNascimento, CPF, RG);
+            listaClientes.add(cliente);
+            return cliente;
         }
         
 
-        public void criarPedido(String notaFiscal, String canalVenda, String Unidade, List<Produto>listaProdutos)){
+        public void criarPedido(String notaFiscal, String canalVenda, String Unidade, List<Produto>listaProdutos){
             listaPedidos.add(new Pedido(notaFiscal, canalVenda, Unidade, listaProdutos));
 
         }
-    }
-        
+    } 

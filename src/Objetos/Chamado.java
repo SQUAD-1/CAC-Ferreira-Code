@@ -37,7 +37,6 @@ public class Chamado {
 		this.tipo = tipo;
 		this.setor = atendimento.getSetor();
 		this.impacto = impacto;
-		this.descricao = atendimento.getDescricao();
 		this.atendimento.add(atendimento);
 	}
 	

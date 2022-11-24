@@ -2,11 +2,19 @@ package Attr;
 
 public class Contato {
 
-	Contato(String celular, boolean wpp, String email){
+	Contato(String celular, String email, boolean wpp){
 		
 		this.id = Contato.id++;
 		this.celular = celular;
 		this.wpp = wpp;
+		this.email = email;
+	}
+
+	public Contato(String celular, String email){
+		
+		this.id = Contato.id++;
+		this.celular = celular;
+		this.wpp = false;
 		this.email = email;
 	}
 	
