@@ -1,6 +1,35 @@
 package Attr;
 
-public class Endereco {
+public class Endereco{
+
+	Endereco(String endereco, int numero, String cidade, String estado, String complemento, String pontoRef, String CEP){
+		this.id = Endereco.id++;
+
+		this.endereco = endereco;
+		this.numero = numero;
+		this.cidade = cidade;
+		this.estado = estado;
+		this.complemento = complemento;
+		this.pontoRef = pontoRef;
+		this.CEP = CEP;
+	}
+
+	Endereco(String endereco, int numero, String cidade, String estado, String CEP){
+		this.id = Endereco.id++;
+
+		this.endereco = endereco;
+		this.numero = numero;
+		this.cidade = cidade;
+		this.estado = estado;
+		this.CEP = CEP;
+	}
+
+	Endereco(String CEP){
+		this.id = Endereco.id++;
+
+		this.CEP = CEP;
+	}
+	
 	
 	private static int id;
 	private String endereco;
@@ -13,9 +42,6 @@ public class Endereco {
 	
 	public static int getId() {
 		return id;
-	}
-	public static void setId(int id) {
-		Endereco.id = id;
 	}
 	public String getEndereco() {
 		return endereco;

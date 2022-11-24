@@ -1,13 +1,19 @@
 package Entidades;
 
 public abstract class Usuario {
+
+    //Atríbutos
+    
     private static int id;
     private String nome;
     private String email;
     private String senha;
     private float classificação;
     private String equipe;
-    
+    private String estado;
+
+    //Getters e Setters
+
     public static int getId() {
         return id;
     }
@@ -43,5 +49,23 @@ public abstract class Usuario {
     }
     public void setEquipe(String equipe) {
         this.equipe = equipe;
+    }
+
+    // Funções
+    
+    public void mensagem(Usuario destino, String mensagem){
+        System.out.printf("Mensagem enviada para %s - '%s'\n", destino.getNome(), mensagem);
+    }
+    public void pausar(){
+        this.estado = "Em pausa";
+    }
+    public void despausar(){
+        this.estado = "Ativo";
+    }
+    public void enviarEmail(Usuario destino, String assunto, String mensagem){
+        System.out.printf("Email enviado para %s\nAssunto: %s\n%s",destino.getNome(), assunto, mensagem);
+    }
+    public void transferirLigação(Usuario destino){
+        System.out.printf("A ligação foi transferida para %s - '%s'\n", destino.getNome());
     }
 }

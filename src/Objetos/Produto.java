@@ -1,11 +1,48 @@
 package Objetos;
 
 public class Produto {
+	Produto(String codigo, String nome, float preco, String modelo, String fabricante, int garantia, String categoria, String responsavelCompra){
+
+		this.codigo = codigo;
+		this.nome = nome;
+		this.preco = preco;
+		this.modelo = modelo;
+		this.fabricante = fabricante;
+		this.garantia = garantia;
+		this.categoria = categoria;
+		this.responsavelCompra = responsavelCompra;
+
+	}
+
+	Produto(String codigo, String nome, float preco, String fabricante, int garantia, String categoria, String responsavelCompra){
+
+		this.codigo = codigo;
+		this.nome = nome;
+		this.preco = preco;
+		this.fabricante = fabricante;
+		this.garantia = garantia;
+		this.categoria = categoria;
+		this.responsavelCompra = responsavelCompra;
+
+	}
+
+	Produto(String nome, float preco, String fabricante, int garantia, String categoria, String responsavelCompra){
+
+		//criar função para criar o código do produto
+
+		this.nome = nome;
+		this.preco = preco;
+		this.fabricante = fabricante;
+		this.garantia = garantia;
+		this.categoria = categoria;
+		this.responsavelCompra = responsavelCompra;
+
+	}
 	
 	private String codigo;
 	private String nome;
 	private float preco;
-	private String Modelo;
+	private String modelo;
 	private String fabricante;
 	private int garantia;
 	private String categoria;
@@ -14,49 +51,46 @@ public class Produto {
 	public String getCodigo() {
 		return codigo;
 	}
-	public void setCodigo(String codigo) {
-		this.codigo = codigo;
-	}
 	public String getNome() {
 		return nome;
 	}
-	public void setNome(String nome) {
+	public void alterNome(String nome) {
 		this.nome = nome;
 	}
 	public float getPreco() {
 		return preco;
 	}
-	public void setPreco(float preco) {
+	public void alterPreco(float preco) {
 		this.preco = preco;
 	}
 	public String getModelo() {
-		return Modelo;
+		return modelo;
 	}
-	public void setModelo(String modelo) {
-		Modelo = modelo;
+	public void alterModelo(String modelo) {
+		this.modelo = modelo;
 	}
 	public String getFabricante() {
 		return fabricante;
 	}
-	public void setFabricante(String fabricante) {
+	public void alterFabricante(String fabricante) {
 		this.fabricante = fabricante;
 	}
 	public int getGarantia() {
 		return garantia;
 	}
-	public void setGarantia(int garantia) {
+	public void alterGarantia(int garantia) {
 		this.garantia = garantia;
 	}
 	public String getCategoria() {
 		return categoria;
 	}
-	public void setCategoria(String categoria) {
+	public void alterCategoria(String categoria) {
 		this.categoria = categoria;
 	}
 	public String getResponsavelCompra() {
 		return responsavelCompra;
 	}
-	public void setResponsavelCompra(String responsavelCompra) {
+	public void alterResponsavelCompra(String responsavelCompra) {
 		this.responsavelCompra = responsavelCompra;
 	}
 }

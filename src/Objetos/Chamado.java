@@ -1,42 +1,53 @@
 package Objetos;
 
 import java.util.List;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 import Entidades.Cliente;
 import Grupos.Setor;
-import Attr.Evento;
+import Attr.*;
 
 public class Chamado {
+
+	Chamado(Cliente cliente, String motivo, String canal, String prioridade, String tipo, Setor setor, String impacto, String descricao, Atendimento atendimento){
+		nChamado = Chamado.nChamado++;
+		dataAbertura = LocalDateTime.now();
+		linhaDoTempo.add(new Evento("Chamada criada em " + dataAbertura, dataAbertura));
+
+		this.cliente = cliente;
+		this.motivo = motivo;
+		this.canal = canal;
+		this.prioridade = prioridade;
+		this.tipo = tipo;
+		this.setor.add(setor);
+		this.impacto = impacto;
+		this.descricao = descricao;
+		this.atendimento.add(atendimento);
+	}
 	
 	private static int nChamado;
 	private Cliente cliente;
 	private String motivo;
-	private float slaBruto;
-	private float slaLiquido;
 	private String canal;
 	private String prioridade;
-	private Date dataAbertura;
-	private Pedidos pedido;
+	private LocalDateTime dataAbertura;
+	private Pedido pedido;
 	private String tipo;
 	private List<Setor> setor = new ArrayList<>();
 	private String impacto;
 	private String descricao;
 	private String observacao;
-	private List<Atendimentos> atendimentos = new ArrayList<>();
+	private List<Atendimento> atendimento = new ArrayList<>();
 	private String situacao;
 	private List<Evento> linhaDoTempo = new ArrayList<>();
 	
 	public static int getnChamado() {
 		return nChamado;
 	}
-	public static void setnChamado(int nChamado) {
-		Chamado.nChamado = nChamado;
-	}
 	public Cliente getCliente() {
 		return cliente;
 	}
-	public void setCliente(Cliente cliente) {
+	public void alterCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
 	public String getMotivo() {
@@ -45,22 +56,10 @@ public class Chamado {
 	public void setMotivo(String motivo) {
 		this.motivo = motivo;
 	}
-	public float getSlaBruto() {
-		return slaBruto;
-	}
-	public void setSlaBruto(float slaBruto) {
-		this.slaBruto = slaBruto;
-	}
-	public float getSlaLiquido() {
-		return slaLiquido;
-	}
-	public void setSlaLiquido(float slaLiquido) {
-		this.slaLiquido = slaLiquido;
-	}
 	public String getCanal() {
 		return canal;
 	}
-	public void setCanal(String canal) {
+	public void alterCanal(String canal) {
 		this.canal = canal;
 	}
 	public String getPrioridade() {
@@ -69,16 +68,13 @@ public class Chamado {
 	public void setPrioridade(String prioridade) {
 		this.prioridade = prioridade;
 	}
-	public Date getDataAbertura() {
+	public LocalDateTime getDataAbertura() {
 		return dataAbertura;
 	}
-	public void setDataAbertura(Date dataAbertura) {
-		this.dataAbertura = dataAbertura;
-	}
-	public Pedidos getPedido() {
+	public Pedido getPedido() {
 		return pedido;
 	}
-	public void setPedido(Pedidos pedido) {
+	public void alterPedido(Pedido pedido) {
 		this.pedido = pedido;
 	}
 	public String getTipo() {
@@ -90,8 +86,8 @@ public class Chamado {
 	public List<Setor> getSetor() {
 		return setor;
 	}
-	public void setSetor(List<Setor> setor) {
-		this.setor = setor;
+	public void setSetor(Setor setor) {
+		this.setor.add(setor);
 	}
 	public String getImpacto() {
 		return impacto;
@@ -111,11 +107,11 @@ public class Chamado {
 	public void setObservacao(String observacao) {
 		this.observacao = observacao;
 	}
-	public List<Atendimentos> getAtendimentos() {
-		return atendimentos;
+	public List<Atendimento> getAtendimento() {
+		return atendimento;
 	}
-	public void setAtendimentos(List<Atendimentos> atendimentos) {
-		this.atendimentos = atendimentos;
+	public void addAtendimento(Atendimento atendimento) {
+		this.atendimento.add(atendimento);
 	}
 	public String getSituacao() {
 		return situacao;
@@ -126,7 +122,7 @@ public class Chamado {
 	public List<Evento> getLinhaDoTempo() {
 		return linhaDoTempo;
 	}
-	public void setLinhaDoTempo(List<Evento> linhaDoTempo) {
-		this.linhaDoTempo = linhaDoTempo;
+	public void AddLinhaDoTempo(Evento evento) {
+		this.linhaDoTempo.add(evento);
 	}
 }

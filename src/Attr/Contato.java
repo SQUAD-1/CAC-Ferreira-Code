@@ -1,6 +1,14 @@
 package Attr;
 
 public class Contato {
+
+	Contato(String celular, boolean wpp, String email){
+		
+		this.id = Contato.id++;
+		this.celular = celular;
+		this.wpp = wpp;
+		this.email = email;
+	}
 	
 	private static int id;
 	private String telefone;
@@ -11,19 +19,16 @@ public class Contato {
 	public static int getId() {
 		return id;
 	}
-	public static void setId(int id) {
-		Contato.id = id;
-	}
 	public String getTelefone() {
 		return telefone;
 	}
-	public void setTelefone(String telefone) {
+	public void alterTelefone(String telefone) {
 		this.telefone = telefone;
 	}
 	public String getCelular() {
 		return celular;
 	}
-	public void setCelular(String celular) {
+	public void alterCelular(String celular) {
 		this.celular = celular;
 	}
 	public boolean isWpp() {
@@ -35,7 +40,7 @@ public class Contato {
 	public String getEmail() {
 		return email;
 	}
-	public void setEmail(String email) {
+	public void alterEmail(String email) {
 		this.email = email;
 	}
 

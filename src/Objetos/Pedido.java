@@ -3,11 +3,31 @@ package Objetos;
 import java.util.List;
 import java.util.ArrayList;
 
-public class Pedidos {
+public class Pedido {
+
+	Pedido(String notaFiscal, String canalVenda, String Unidade, List<Produto>listaProdutos){
+		
+		this.n_pedido = Pedido.n_pedido++;
+		
+		this.notaFiscal = notaFiscal;
+		this.canalVenda = canalVenda;
+		this.Unidade = Unidade;
+		this.listaProdutos = listaProdutos;
+
+	}
+
+	Pedido(String notaFiscal, String canalVenda, String Unidade){
+		
+		this.n_pedido = Pedido.n_pedido++;
+		
+		this.notaFiscal = notaFiscal;
+		this.canalVenda = canalVenda;
+		this.Unidade = Unidade;
+
+	}
 	
 	private static int n_pedido;
 	private String notaFiscal;
-	private String transportadora;
 	private String canalVenda;
 	private String Unidade;
 	private List<Produto> listaProdutos = new ArrayList<>();
@@ -16,19 +36,13 @@ public class Pedidos {
 		return n_pedido;
 	}
 	public static void setN_pedido(int n_pedido) {
-		Pedidos.n_pedido = n_pedido;
+		Pedido.n_pedido = n_pedido;
 	}
 	public String getNotaFiscal() {
 		return notaFiscal;
 	}
 	public void setNotaFiscal(String notaFiscal) {
 		this.notaFiscal = notaFiscal;
-	}
-	public String getTransportadora() {
-		return transportadora;
-	}
-	public void setTransportadora(String transportadora) {
-		this.transportadora = transportadora;
 	}
 	public String getCanalVenda() {
 		return canalVenda;

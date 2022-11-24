@@ -1,4 +1,6 @@
 package Grupos;
+import java.util.Dictionary;
+
 public class Setor {
 	
 	private static int id;
@@ -23,4 +25,6 @@ public class Setor {
 	public void setUnidade(String unidade) {
 		this.unidade = unidade;
 	}
+
+	
 }
