@@ -20,35 +20,35 @@ public class Contato {
 	
 	private static int id;
 	private String telefone;
-	private String celular;
+	private String celular; 
 	private boolean wpp;
 	private String email;
-	
-	public static int getId() {
+	 
+	public static int getId() { /*Fazer select de informação */
 		return id;
 	}
-	public String getTelefone() {
+	public String getTelefone() { /*Fazer select de informação */
 		return telefone;
 	}
-	public void alterTelefone(String telefone) {
+	public void alterTelefone(String telefone) { /*Fazer alter de informação */
 		this.telefone = telefone;
 	}
-	public String getCelular() {
+	public String getCelular() { /*Fazer select de informação */
 		return celular;
 	}
-	public void alterCelular(String celular) {
+	public void alterCelular(String celular) { /*Fazer alter de informação */
 		this.celular = celular;
 	}
-	public boolean isWpp() {
+	public boolean isWpp() { /*Fazer select de informação */
 		return wpp;
 	}
-	public void setWpp(boolean wpp) {
+	public void setWpp(boolean wpp) { /*Fazer alter de informação */
 		this.wpp = wpp;
 	}
-	public String getEmail() {
+	public String getEmail() { /*Fazer select de informação */
 		return email;
 	}
-	public void alterEmail(String email) {
+	public void alterEmail(String email) { /*Fazer alter de informação */
 		this.email = email;
 	}
 
