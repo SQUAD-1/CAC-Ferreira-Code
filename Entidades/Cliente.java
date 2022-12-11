@@ -2,10 +2,8 @@ package Entidades;
 
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Date;
 import Attr.Contato;
 import Objetos.*;
-import Attr.*;
 
 public class Cliente {
 
@@ -27,55 +25,55 @@ public class Cliente {
 	private List<Chamado> listaChamados = new ArrayList<>();
 	private List<Atendimento> listaAtendimentos =  new ArrayList<>();
 	
-	public static int getId() {
+	public static int getId() { /*Fazer select da informação */
 		return id;
 	}
-	public String getNomeCompleto() {
+	public String getNomeCompleto() { /*Fazer select da informação */
 		return nomeCompleto;
 	}
-	public void alterNomeCompleto(String nomeCompleto) {
+	public void alterNomeCompleto(String nomeCompleto) { /*Fazer alter das informação */
 		this.nomeCompleto = nomeCompleto;
 	}
-	public String getDataNascimento() {
+	public String getDataNascimento() { /*Fazer select da informação */
 		return dataNascimento;
 	}
-	public void alterDataNascimento(String dataNascimento) {
+	public void alterDataNascimento(String dataNascimento) { /*Fazer alter das informação */
 		this.dataNascimento = dataNascimento;
 	}
-	public String getCPF() {
+	public String getCPF() { /*Fazer select da informação */
 		return CPF;
 	}
-	public void alterCPF(String cPF) {
-		CPF = cPF;
+	public void alterCPF(String CPF) { /*Fazer alter das informação */
+		this.CPF = CPF;
 	}
-	public String getRG() {
+	public String getRG() {  /*Fazer select da informação */
 		return RG;
 	}
-	public void alterRG(String rG) {
-		RG = rG;
+	public void alterRG(String RG) { /*Fazer alter das informação */
+		this.RG = RG;
 	}
-	public Contato getContato() {
+	public Contato getContato() { /*Fazer select da informação */
 		return contato;
 	}
-	public void setContato(String celular, String email) {
+	public void setContato(String celular, String email) { /*Fazer alter das informação */
 		this.contato = new Contato(celular, email);
 	}
-	public List<Pedido> getListaPedidos() {
+	public List<Pedido> getListaPedidos() { /*Fazer select das informações com o mesmo id do cliente*/
 		return listaPedidos;
 	}
-	public void addListaPedidos(Pedido Pedido) {
+	public void addListaPedidos(Pedido Pedido) {  /*Fazer alter da informação */
 		this.listaPedidos.add(Pedido);
 	}
-	public List<Chamado> getListaChamados() {
+	public List<Chamado> getListaChamados() { /*Fazer select da informação */
 		return listaChamados;
 	}
-	public void addListaChamados(Chamado Chamado) {
+	public void addListaChamados(Chamado Chamado) { /*Fazer alter da informação */
 		this.listaChamados.add(Chamado);
 	}
-	public List<Atendimento> getListaAtendimentos() {
+	public List<Atendimento> getListaAtendimentos() { /*Fazer select das informações com o mesmo id do cliente*/
 		return listaAtendimentos;
 	}
-	public void addListaAtendimentos(Atendimento Atendimento) {
+	public void addListaAtendimentos(Atendimento Atendimento) { /*Fazer alter da informação */
 		this.listaAtendimentos.add(Atendimento);
 	}
 

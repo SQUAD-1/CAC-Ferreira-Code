@@ -35,70 +35,71 @@ public class Atendimento {
 	private boolean chamado;
 	private List<Evento> linhaDoTempo = new ArrayList<>();
 	
-	public static int getN_atendimento() {
+	
+	public static int getN_atendimento() { /*Fazer select da informação */
 		return n_atendimento;
 	}
-	public Cliente getCliente() {
+	public Cliente getCliente() { /*Fazer select da informação */
 		return cliente;
 	}
-	public void alterCliente(Cliente cliente) {
+	public void alterCliente(Cliente cliente) { /*Fazer alter da informação */
 		this.cliente = cliente;
 	}
-	public String getMotivo() {
+	public String getMotivo() { /*Fazer select da informação */
 		return motivo;
 	}
-	public void alterMotivo(String motivo) {
+	public void alterMotivo(String motivo) { /*Fazer alter da informação */
 		this.motivo = motivo;
 	}
-	public float getSla_bruto() {
+	public float getSla_bruto() { /*Fazer select da informação */
 		return sla_bruto;
 	}
-	public void setSla_bruto(float sla_bruto) {
+	public void setSla_bruto(float sla_bruto) { /*Fazer alter da informação */
 		this.sla_bruto = sla_bruto;
 	}
-	public String getCanal() {
+	public String getCanal() { /*Fazer select da informação */
 		return canal;
 	}
-	public void setCanal(String canal) {
+	public void setCanal(String canal) {  /*Fazer alter da informação */
 		this.canal = canal;
 	}
 	public LocalDateTime getDataAtendimento() {
 		return dataAtendimento;
 	}
-	public Pedido getPedido() {
+	public Pedido getPedido() { /*Fazer select da informação */
 		return pedido;
 	}
-	public void setPedido(Pedido pedido) {
+	public void setPedido(Pedido pedido) { /*Fazer alter da informação */
 		this.pedido = pedido;
 	}
-	public List<Setor> getSetor() {
+	public List<Setor> getSetor() { /*Fazer select da informação */
 		return setor;
 	}
-	public void addSetor(Setor setor) {
+	public void addSetor(Setor setor) { /*Fazer alter da informação */
 		this.setor.add(setor);
 	}
-	public String getResolucao() {
+	public String getResolucao() { /*Fazer select da informação */
 		return resolucao;
 	}
-	public void setResolucao(String resolucao) {
+	public void setResolucao(String resolucao) { /*Fazer alter da informação */
 		this.resolucao = resolucao;
 	}
-	public String getSituacao() {
+	public String getSituacao() { /*Fazer select da informação */
 		return situacao;
 	}
-	public void setSituacao(String situacao) {
+	public void setSituacao(String situacao) { /*Fazer alter da informação */
 		this.situacao = situacao;
 	}
-	public boolean getChamado() {
+	public boolean getChamado() { /*Fazer select da informação */
 		return chamado;
 	}
-	public void setChamado(boolean chamado) {
+	public void setChamado(boolean chamado) {  /*Fazer alter da informação */
 		this.chamado = chamado;
 	}
-	public List<Evento> getLinhaDoTempo() {
+	public List<Evento> getLinhaDoTempo() { /*Fazer select da informação */
 		return linhaDoTempo;
 	}
-	public void AddEvento(Evento evento) {
+	public void AddEvento(Evento evento) { /*Fazer alter da informação */
 		this.linhaDoTempo.add(evento);
 	}
 }

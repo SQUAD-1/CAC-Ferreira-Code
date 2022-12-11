@@ -12,16 +12,16 @@ public class Evento {
 	private String descricao;
 	private LocalDateTime data;
 	
-	public String getDescricao() {
+	public String getDescricao() { /*Fazer select de informação */
 		return descricao;
 	}
-	public void setDescricao(String descricao) {
+	public void setDescricao(String descricao) { /*Fazer alter de informação */
 		this.descricao = descricao;
 	}
-	public LocalDateTime getData() {
+	public LocalDateTime getData() { /*Fazer select de informação */
 		return data;
 	}
-	public void setData(LocalDateTime data) {
+	public void setData(LocalDateTime data) { /*Fazer alter de informação */
 		this.data = data;
 	}
 	

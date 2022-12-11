@@ -4,12 +4,14 @@ import java.util.*;
 import Objetos.*;
 import Entidades.*;
 import Grupos.*;
-import Objetos.*;
 
 public class Sistema {
     public Sistema(){
         System.out.println("Sistema criado!");
     }
+
+    /*Todas as listas vão deixar de existir e o programa vai passar a fazer requisições ao BD */
+
     private List<Atendimento> listaAtendimentos = new ArrayList<>();
     private List<Chamado> listaChamados = new ArrayList<>();
     private List<Pedido> listaPedidos = new ArrayList<>();
@@ -18,7 +20,7 @@ public class Sistema {
     private List<Usuario> listaUsuarios = new ArrayList<>();
     private List<Setor> listaSetores = new ArrayList<>();
 
-    private int actions = 0;
+    private int actions = 0; // Toda ação feita deve incrementar essa variável
 
     public boolean auth(String email, String senha){
         boolean authcheck = false;
@@ -29,7 +31,7 @@ public class Sistema {
         }
         return authcheck;
     }
-    public Object consulta(String tipo, String palavraChave){
+    public Object consulta(String tipo, String palavraChave){   /*Mudar lógica para consultar informações no BD e comparar a palavra chave com o nome dos produto do bd*/
         Object result = new Object();
 
         if (tipo.equals("produto")){
@@ -68,21 +70,21 @@ public class Sistema {
             }
             return result;
         }
-        public Atendimento abrirAtendimento(Cliente cliente, String motivo, String canal, Setor setor){
+        public Atendimento abrirAtendimento(Cliente cliente, String motivo, String canal, Setor setor){  /*Enviar informações da chamada no BD */
             Atendimento atendimento = new Atendimento(cliente,motivo, canal, setor);
             listaAtendimentos.add(atendimento);
             cliente.addListaAtendimentos(atendimento);
             return atendimento;
         }
 
-        public Chamado abrirChamado(Cliente cliente, Atendimento atendimento, String tipo, String impacto, String prioridade){
+        public Chamado abrirChamado(Cliente cliente, Atendimento atendimento, String tipo, String impacto, String prioridade){ /*Enviar informações da chamada no BD */
             Chamado chamado = new Chamado(cliente, atendimento, tipo, impacto, prioridade);
             listaChamados.add(chamado);
             cliente.addListaChamados(chamado);
             return chamado;
         }
 
-        public void fecharChamado(Chamado chamado){
+        public void fecharChamado(Chamado chamado){  /*Mudar Status do chamado no BD para fechado */
             for (int i = 0; i < listaChamados.size(); i++){
                 if (chamado == listaChamados.get(i)){
                     chamado.setSituacao("Fechado");
@@ -91,28 +93,28 @@ public class Sistema {
             }
         }
 
-        public void addProduto(Produto produto){
+        public void addProduto(Produto produto){ /*Enviar informações da chamada no BD */
             listaProdutos.add(new Produto( produto.getCodigo(), produto.getNome(), produto.getPreco(), produto.getFabricante(), produto.getGarantia(), produto.getCategoria(), produto.getResponsavelCompra()));
         }
 
-        public Setor addSetor(String nome, String unidade){
+        public Setor addSetor(String nome, String unidade){ /*Enviar informações da chamada no BD */
             Setor setor = new Setor(nome, unidade);
             listaSetores.add(setor);
             return setor;
         }
 
-        public Cliente criarCliente(String nome, String dataNascimento, String CPF, String RG){
+        public Cliente criarCliente(String nome, String dataNascimento, String CPF, String RG){ /*Enviar informações da chamada no BD */
             Cliente cliente = new Cliente(nome, dataNascimento, CPF, RG);
             listaClientes.add(cliente);
             return cliente;
         }
 
-        public void criarPedido(String notaFiscal, String canalVenda, String Unidade, List<Produto>listaProdutos){
+        public void criarPedido(String notaFiscal, String canalVenda, String Unidade, List<Produto>listaProdutos){ /*Enviar informações da chamada no BD */
             listaPedidos.add(new Pedido(notaFiscal, canalVenda, Unidade, listaProdutos));
 
         }
 
-        public void show(String comentario){
+        public void show(String comentario){ 
         actions++;
         System.out.printf("\nEvento %d - %s\n", actions, comentario);
         }

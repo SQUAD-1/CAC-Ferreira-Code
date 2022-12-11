@@ -48,49 +48,49 @@ public class Produto {
 	private String categoria;
 	private String responsavelCompra;
 	
-	public String getCodigo() {
+	public String getCodigo() { /*Fazer select da informação */
 		return codigo;
 	}
-	public String getNome() {
+	public String getNome() { /*Fazer select da informação */
 		return nome;
 	}
-	public void alterNome(String nome) {
+	public void alterNome(String nome) { /*Fazer alter da informação */
 		this.nome = nome;
 	}
-	public float getPreco() {
+	public float getPreco() { /*Fazer select da informação */
 		return preco;
 	}
-	public void alterPreco(float preco) {
+	public void alterPreco(float preco) { /*Fazer alter da informação */
 		this.preco = preco;
 	}
-	public String getModelo() {
+	public String getModelo() { /*Fazer select da informação */
 		return modelo;
 	}
-	public void alterModelo(String modelo) {
+	public void alterModelo(String modelo) { /*Fazer alter da informação */
 		this.modelo = modelo;
 	}
-	public String getFabricante() {
+	public String getFabricante() { /*Fazer select da informação */
 		return fabricante;
 	}
-	public void alterFabricante(String fabricante) {
+	public void alterFabricante(String fabricante) { /*Fazer alter da informação */
 		this.fabricante = fabricante;
 	}
-	public int getGarantia() {
+	public int getGarantia() { /*Fazer select da informação */
 		return garantia;
 	}
-	public void alterGarantia(int garantia) {
+	public void alterGarantia(int garantia) { /*Fazer alter da informação */
 		this.garantia = garantia;
 	}
-	public String getCategoria() {
+	public String getCategoria() { /*Fazer select da informação */
 		return categoria;
 	}
-	public void alterCategoria(String categoria) {
+	public void alterCategoria(String categoria) { /*Fazer alter da informação */
 		this.categoria = categoria;
 	}
-	public String getResponsavelCompra() {
+	public String getResponsavelCompra() { /*Fazer select da informação */
 		return responsavelCompra;
 	}
-	public void alterResponsavelCompra(String responsavelCompra) {
+	public void alterResponsavelCompra(String responsavelCompra) { /*Fazer alter da informação */
 		this.responsavelCompra = responsavelCompra;
 	}
 }

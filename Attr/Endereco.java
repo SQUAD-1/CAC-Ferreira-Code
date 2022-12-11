@@ -4,7 +4,6 @@ public class Endereco{
 
 	Endereco(String endereco, int numero, String cidade, String estado, String complemento, String pontoRef, String CEP){
 		this.id = Endereco.id++;
-
 		this.endereco = endereco;
 		this.numero = numero;
 		this.cidade = cidade;
@@ -26,7 +25,6 @@ public class Endereco{
 
 	Endereco(String CEP){
 		this.id = Endereco.id++;
-
 		this.CEP = CEP;
 	}
 	
@@ -40,49 +38,49 @@ public class Endereco{
 	private String pontoRef;
 	private String CEP;
 	
-	public static int getId() {
+	public static int getId() {  /*Fazer select de informação */
 		return id;
 	}
-	public String getEndereco() {
+	public String getEndereco() {  /*Fazer select de estado */
 		return endereco;
 	}
-	public void setEndereco(String endereco) {
+	public void setEndereco(String endereco) { /*Fazer alter de informação  */
 		this.endereco = endereco;
 	}
-	public int getNumero() {
+	public int getNumero() {  /*Fazer select de informação */
 		return numero;
 	}
-	public void setNumero(int numero) {
+	public void setNumero(int numero) { /*Fazer alter de informação */
 		this.numero = numero;
 	}
-	public String getCidade() {
+	public String getCidade() { /*Fazer select de informação */
 		return cidade;
 	}
-	public void setCidade(String cidade) {
+	public void setCidade(String cidade) { /*Fazer alter de informação */
 		this.cidade = cidade;
 	}
-	public String getEstado() {
+	public String getEstado() { /*Fazer select de informação */
 		return estado;
 	}
-	public void setEstado(String estado) {
+	public void setEstado(String estado) { /*Fazer alter de informação */
 		this.estado = estado;
 	}
-	public String getComplemento() {
+	public String getComplemento() { /*Fazer select de informação */
 		return complemento;
 	}
-	public void setComplemento(String complemento) {
+	public void setComplemento(String complemento) { /*Fazer alter de informação */
 		this.complemento = complemento;
 	}
-	public String getPontoRef() {
+	public String getPontoRef() { /*Fazer select de informação */
 		return pontoRef;
 	}
-	public void setPontoRef(String pontoRef) {
+	public void setPontoRef(String pontoRef) { /*Fazer alter de informação */
 		this.pontoRef = pontoRef;
 	}
-	public String getCEP() {
+	public String getCEP() { /*Fazer select de informação */
 		return CEP;
 	}
-	public void setCEP(String CEP) {
-		CEP = CEP;
+	public void setCEP(String CEP) { /*Fazer alter de informação */
+		this.CEP = CEP;
 	}
 }

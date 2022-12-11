@@ -12,22 +12,22 @@ public class Setor {
 	private String nome;
 	private String unidade;
 	
-	public static int getId() {
+	public static int getId() {  /*Fazer select da informação */
 		return id;
 	}
-	public static void setId(int id) {
+	public static void setId(int id) { /*Fazer alter da informação */
 		Setor.id = id;
 	}
-	public String getNome() {
+	public String getNome() { /*Fazer select da informação */
 		return nome;
 	}
-	public void setNome(String nome) {
+	public void setNome(String nome) { /*Fazer alter da informação */
 		this.nome = nome;
 	}
-	public String getUnidade() {
+	public String getUnidade() { /*Fazer select da informação */
 		return unidade;
 	}
-	public void setUnidade(String unidade) {
+	public void setUnidade(String unidade) { /*Fazer alter da informação */
 		this.unidade = unidade;
 	}
 

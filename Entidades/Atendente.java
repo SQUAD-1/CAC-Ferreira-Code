@@ -8,4 +8,6 @@ public class Atendente extends Usuario{
     this.setEquipe(equipe);
     this.setEstado(estado);
     }
+
+    /*Adiconar insert das informações dentro do construtor */
 }

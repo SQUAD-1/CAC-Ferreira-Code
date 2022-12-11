@@ -15,47 +15,47 @@ public abstract class Usuario {
     
     //Getters e Setters
 
-    public String getEstado() {
+    public String getEstado() { /*Fazer select da informação */
         return estado;
     }
-    public void setEstado(String estado) {
+    public void setEstado(String estado) { /*Fazer alter das informação */
         this.estado = estado;
     }
-    public static int getId() {
+    public static int getId() { /*Fazer select da informação */
         return id;
     }
-    public static void setId(int id) {
+    public static void setId(int id) { /*Fazer alter das informação */
         Usuario.id = id;
     }
-    public String getNome() {
+    public String getNome() { /*Fazer select da informação */
         return nome;
     }
-    public void setNome(String nome) {
+    public void setNome(String nome) { /*Fazer alter das informação */
         this.nome = nome;
     }
-    public String getEmail() {
+    public String getEmail() { /*Fazer select da informação */
         return email;
     }
-    public void setEmail(String email) {
+    public void setEmail(String email) { /*Fazer alter das informação */
         this.email = email;
     }
-    public String getSenha() {
+    public String getSenha() { /*Fazer select da informação */
         return senha;
     }
-    public void setSenha(String senha) {
+    public void setSenha(String senha) { /*Fazer alter das informação */
         this.senha = senha;
     }
-    public float getClassificação() {
+    public float getClassificação() { /*Fazer select da informação */
         return classificação;
     }
-    public void setClassificação(float classificação) {
+    public void setClassificação(float classificação) { /*Fazer alter das informação */
         this.classificação = classificação;
     }
-    public String getEquipe() {
+    public String getEquipe() { /*Fazer select da informação */
         return equipe;
     }
-    public void setEquipe(String equipe) {
-        this.equipe = equipe;
+    public void setEquipe(String equipe) { /*Fazer alter das informação */
+        this.equipe = equipe; 
     }
 
     // Funções
@@ -63,10 +63,10 @@ public abstract class Usuario {
     public void mensagem(Usuario destino, String mensagem){
         System.out.printf("Mensagem enviada para %s - '%s'\n", destino.getNome(), mensagem);
     }
-    public void pausar(){
+    public void pausar(){ /*Fazer alter de estado */
         this.estado = "Em pausa";
     }
-    public void despausar(){
+    public void despausar(){ /*Fazer alter de estado */
         this.estado = "Ativo";
     }
     public void enviarEmail(Usuario destino, String assunto, String mensagem){
