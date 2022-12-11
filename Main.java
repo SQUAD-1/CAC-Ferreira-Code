@@ -20,7 +20,6 @@
 import Sistema.*;
 import Entidades.*;
 import Objetos.*;
-import Attr.Ligacao;
 import Grupos.*;
 
 public class Main {
@@ -35,7 +34,7 @@ public class Main {
                 "Equipe: Atendimento" +
                 "Estado do FC: PE");
 
-        Atendente atend1 = new Atendente("José Vinícius", "josevini@fcxlabs.com.br", "fcx00421", "Atendimento", "PE");
+        Funcionário atend1 = new Funcionário("José Vinícius", "josevini@fcxlabs.com.br", "fcx00421", "Atendimento", "PE");
 
         sys.show("Registrando produto no sistema: Smart TV LED 50 LG 4k/Ultra HD\n" +
                 "Preço: 2699\n" +
@@ -69,8 +68,6 @@ public class Main {
 
         sys.show("Adicionando setor: Financeiro" +
                 "Unidade: Ibiribeira");
-
-        Ligacao call = new Ligacao("(81)99221-3421",atend1.getId());
 
         sys.show("Recebendo ligação do telefone: (81) 99221-3421");
 
@@ -118,8 +115,6 @@ public class Main {
         sys.show("Chamado registrado com sucesso!");
 
         sys.show("Encerrando ligação");
-
-        call.encerrar(atend1);
 
         sys.show("Ligação encerrada");
 

@@ -17,14 +17,14 @@ public class Sistema {
     private List<Pedido> listaPedidos = new ArrayList<>();
     private List<Cliente> listaClientes = new ArrayList<>();
     private List<Produto> listaProdutos = new ArrayList<>();
-    private List<Usuario> listaUsuarios = new ArrayList<>();
+    private List<Funcionário> listaUsuarios = new ArrayList<>();
     private List<Setor> listaSetores = new ArrayList<>();
 
     private int actions = 0; // Toda ação feita deve incrementar essa variável
 
     public boolean auth(String email, String senha){
         boolean authcheck = false;
-        for (Usuario usuarios : listaUsuarios){
+        for (Funcionário usuarios : listaUsuarios){
             if (email.equals(usuarios.getEmail()) && senha.equals(senha)){
                 authcheck = true;
             }

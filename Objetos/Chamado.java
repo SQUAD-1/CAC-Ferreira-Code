@@ -1,18 +1,17 @@
 package Objetos;
 
-import java.util.List;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
+
 import Entidades.Cliente;
 import Grupos.Setor;
-import Attr.*;
 
 public class Chamado {
 
 	public Chamado(Cliente cliente, String motivo, String canal, String prioridade, String tipo, Setor setor, String impacto, String descricao, Atendimento atendimento){
 		idChamado = Chamado.idChamado++;
 		dataAbertura = LocalDateTime.now();
-		linhaDoTempo.add(new Evento("Chamada criada em " + dataAbertura, dataAbertura));
 
 		this.cliente = cliente;
 		this.motivo = motivo;
@@ -28,7 +27,6 @@ public class Chamado {
 	public Chamado(Cliente cliente, Atendimento atendimento, String tipo, String impacto, String prioridade){
 		idChamado = Chamado.idChamado++;
 		dataAbertura = LocalDateTime.now();
-		linhaDoTempo.add(new Evento("Chamada criada em " + dataAbertura, dataAbertura));
 
 		this.cliente = cliente;
 		this.motivo = atendimento.getMotivo();
@@ -54,7 +52,6 @@ public class Chamado {
 	private String observacao;
 	private List<Atendimento> atendimento = new ArrayList<>(); /*Mudar para array de int, para receber somente os ids dos atendimentos referentes a esse chamado */
 	private String situacao;
-	private List<Evento> linhaDoTempo = new ArrayList<>(); /*Mudar para array de int, para receber somente os ids dos eventos referentes a esse chamado */
 	
 	public static int getIdChamado() { /*Fazer select da informação */
 		return idChamado;
@@ -133,11 +130,5 @@ public class Chamado {
 	}
 	public void setSituacao(String situacao) { /*Fazer alter da informação */
 		this.situacao = situacao;
-	}
-	public List<Evento> getLinhaDoTempo() { /*Fazer select de todos os eventos com o id do chamado*/
-		return linhaDoTempo;
-	}
-	public void AddLinhaDoTempo(Evento evento) { /*Adicionar o id da chamado no evento*/
-		this.linhaDoTempo.add(evento);
 	}
 }

@@ -4,14 +4,12 @@ import java.util.*;
 import java.time.LocalDateTime;
 import Entidades.Cliente;
 import Grupos.Setor;
-import Attr.Evento;
 
 public class Atendimento {
 
 	public Atendimento(Cliente cliente, String motivo, String canal, Setor setor){
 		n_atendimento = Atendimento.n_atendimento++;
 		dataAtendimento = LocalDateTime.now();
-		linhaDoTempo.add(new Evento("Atendimento iniciado em " + dataAtendimento, dataAtendimento));
 
 		this.cliente = cliente;
 		this.motivo = motivo;
@@ -33,7 +31,6 @@ public class Atendimento {
 	private String resolucao;
 	private String situacao;
 	private boolean chamado;
-	private List<Evento> linhaDoTempo = new ArrayList<>();
 	
 	
 	public static int getN_atendimento() { /*Fazer select da informação */
@@ -95,11 +92,5 @@ public class Atendimento {
 	}
 	public void setChamado(boolean chamado) {  /*Fazer alter da informação */
 		this.chamado = chamado;
-	}
-	public List<Evento> getLinhaDoTempo() { /*Fazer select da informação */
-		return linhaDoTempo;
-	}
-	public void AddEvento(Evento evento) { /*Fazer alter da informação */
-		this.linhaDoTempo.add(evento);
 	}
 }

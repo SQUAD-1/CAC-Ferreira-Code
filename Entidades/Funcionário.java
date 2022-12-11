@@ -1,8 +1,16 @@
 package Entidades;
 
 import Grupos.*;
-public abstract class Usuario {
+public class Funcionário {
 
+    public Funcionário(String nome, String email, String senha, String equipe, String estado){
+        this.setNome(nome);
+        this.setEmail(email);
+        this.setSenha(senha);
+        this.setEquipe(equipe);
+        this.setEstado(estado);
+        /*Insert no banco de dados */
+        }
     //Atríbutos
     
     private static int id;
@@ -25,7 +33,7 @@ public abstract class Usuario {
         return id;
     }
     public static void setId(int id) { /*Fazer alter das informação */
-        Usuario.id = id;
+        Funcionário.id = id;
     }
     public String getNome() { /*Fazer select da informação */
         return nome;
@@ -60,7 +68,7 @@ public abstract class Usuario {
 
     // Funções
     
-    public void mensagem(Usuario destino, String mensagem){
+    public void mensagem(Funcionário destino, String mensagem){
         System.out.printf("Mensagem enviada para %s - '%s'\n", destino.getNome(), mensagem);
     }
     public void pausar(){ /*Fazer alter de estado */
@@ -69,7 +77,7 @@ public abstract class Usuario {
     public void despausar(){ /*Fazer alter de estado */
         this.estado = "Ativo";
     }
-    public void enviarEmail(Usuario destino, String assunto, String mensagem){
+    public void enviarEmail(Funcionário destino, String assunto, String mensagem){
         System.out.printf("\nEmail enviado para %s\nAssunto: %s\n%s\n--------------------------------------\n",destino.getNome(), assunto, mensagem);
     }
     public void enviarEmail(Setor destino, String assunto, String mensagem){
@@ -78,7 +86,7 @@ public abstract class Usuario {
     public void enviarEmail(Cliente destino, String assunto, String mensagem){
         System.out.printf("\nEmail enviado para %s\nAssunto: %s\n%s\n--------------------------------------\n",destino.getNomeCompleto(), assunto, mensagem);
     }
-    public void transferirLigação(Usuario destino){
+    public void transferirLigação(Funcionário destino){
         System.out.printf("\nA ligação foi transferida para %s - '%s\n--------------------------------------'\n", destino.getNome());
     }
 }
