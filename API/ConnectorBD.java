@@ -1,10 +1,10 @@
 package API;
 
 import java.sql.*;
-
+public class ConnectorBD
 {
 
-public static void ConnectorBD(String[]args)
+public static void API(String[]args)
 {
     try
     {
