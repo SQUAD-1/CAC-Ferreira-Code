@@ -1,10 +1,11 @@
 package API;
 
 import java.sql.*;
+
 public class ConnectorBD
 {
 
-public static void API(String[]args)
+public static void API(String []args)
 {
     try
     {
@@ -19,6 +20,9 @@ public static void API(String[]args)
         con.close();
 }
 
-catch(Exception e){System.out.println(e);}
+catch(Exception e)
+{
+    System.out.println(e);
+}
 }
 }
