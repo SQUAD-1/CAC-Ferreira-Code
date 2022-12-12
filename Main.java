@@ -16,7 +16,7 @@
         * SISTEMA MANDAR EMAIL PARA O CLIENTE  V
         * SISTEMA FECHAR O CHAMADO V
         */
-
+/* Código Antigo 
 import Sistema.*;
 import Entidades.*;
 import Objetos.*;
@@ -136,4 +136,19 @@ public class Main {
 
         sys.show("Email enviado com sucesso!");
     }
+}*/
+
+import java.io.IOException;
+import java.sql.Connection;
+import API.ConnectorDB;
+
+
+
+
+
+public class Main{
+        public static void main(String args[]) throws IOException{
+                Connection conn = ConnectorDB.getConnection();
+                ConnectorDB.closeConnection();
+        }
 }
