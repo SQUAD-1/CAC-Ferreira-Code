@@ -1,3 +1,5 @@
+import Sistema.Sistema;
+
 /*      -------------------------------------------CAC FERREIRA COSTA---------------------------------------------
         *
         --------------------------------DESENVOLVIDO POR WELLINGTON BRAGA x SQUAD1--------------------------------
@@ -138,17 +140,10 @@ public class Main {
     }
 }*/
 
-import java.io.IOException;
-import java.sql.Connection;
-import API.ConnectorDB;
-
-
-
-
-
 public class Main{
-        public static void main(String args[]) throws IOException{
-                Connection conn = ConnectorDB.getConnection();
-                ConnectorDB.closeConnection();
+        public static void main(String args[]){
+                Sistema sys = new Sistema();
+                sys.auth(" pablodavid@gmail.com");
         }
 }
+ 
