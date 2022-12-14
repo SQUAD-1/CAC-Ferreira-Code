@@ -5,6 +5,8 @@ import Objetos.*;
 import Entidades.*;
 import Grupos.*;
 import java.sql.Connection;
+import java.sql.SQLException;
+
 import API.ConnectorDB;
 import API.Crud;
 
@@ -22,22 +24,28 @@ public class Sistema {
     private List<Pedido> listaPedidos = new ArrayList<>();
     private List<Cliente> listaClientes = new ArrayList<>();
     private List<Setor> listaSetores = new ArrayList<>();
+    private List<Produto> listaProdutos = new ArrayList<>();
     Crud c;
     Connection conn;
 
     private int actions = 0; // Toda ação feita deve incrementar essa variável
 
-    public boolean auth(String email){
+    public boolean auth(String email) throws SQLException{
         boolean authcheck = false;
         
         for (String usuarios : c.read("funcionario")){
             if (email.equals(usuarios)){
                 authcheck = true;
+                System.out.println("Acesso permitido!");
             }
+            
+        }
+        if (!authcheck){
+            System.out.println("Acesso negado!");
         }
         return authcheck;
     }
-    public Object consulta(String tipo, String palavraChave){  
+    public Object consulta(String tipo, String palavraChave) throws SQLException{  
         Object result = new Object();
 
         if (tipo.equals("produto")){
@@ -77,7 +85,8 @@ public class Sistema {
             return result;
         }
 
-        public Atendimento abrirAtendimento(Cliente cliente, String motivo, String canal, Setor setor){  /*Enviar informações da chamada no BD */
+        public Atendimento abrirAtendimento(Cliente cliente, String motivo, String canal, Setor setor) throws SQLException{  /*Enviar informações da chamada no BD */
+            c.createAtendimento(canal, motivo, canal, motivo, actions, actions, canal);
             Atendimento atendimento = new Atendimento(cliente,motivo, canal, setor);
             listaAtendimentos.add(atendimento);
             cliente.addListaAtendimentos(atendimento);
