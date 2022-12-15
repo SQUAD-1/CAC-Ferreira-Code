@@ -143,7 +143,7 @@ public class Main {
 public class Main{
         public static void main(String args[]){
                 Sistema sys = new Sistema();
-                sys.auth(" pablodavid@gmail.com");
+                sys.auth("mariaclara@gmail.com");
         }
 }
  

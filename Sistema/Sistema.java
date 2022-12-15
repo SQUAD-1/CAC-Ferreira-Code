@@ -85,19 +85,14 @@ public class Sistema {
             return result;
         }
 
-        public Atendimento abrirAtendimento(Cliente cliente, String motivo, String canal, Setor setor) throws SQLException{  /*Enviar informações da chamada no BD */
-            c.createAtendimento(canal, motivo, canal, motivo, actions, actions, canal);
-            Atendimento atendimento = new Atendimento(cliente,motivo, canal, setor);
-            listaAtendimentos.add(atendimento);
-            cliente.addListaAtendimentos(atendimento);
-            return atendimento;
+        public boolean abrirAtendimento(String cpf, String motivo, String canal, String prioridade, String DataAbertura, float SLA, int idfuncionario) throws SQLException{  /*Enviar informações da chamada no BD */
+            c.createAtendimento(prioridade, motivo, canal, DataAbertura, SLA, idfuncionario, cpf);
+            return true;
         }
 
-        public Chamado abrirChamado(Cliente cliente, Atendimento atendimento, String tipo, String impacto, String prioridade){ /*Enviar informações da chamada no BD */
-            Chamado chamado = new Chamado(cliente, atendimento, tipo, impacto, prioridade);
-            listaChamados.add(chamado);
-            cliente.addListaChamados(chamado);
-            return chamado;
+        public boolean abrirChamado(String cpf, String motivo, String canal, String dataAbertura, String prioridade, float SLA, int idFuncionario) throws SQLException{ /*Enviar informações da chamada no BD */
+            c.createChamado(prioridade, motivo, canal, dataAbertura, SLA, idFuncionario, cpf);
+            return true;
         }
 
         public void fecharChamado(Chamado chamado){  /*Mudar Status do chamado no BD para fechado */
@@ -109,14 +104,14 @@ public class Sistema {
             }
         }
 
-        public void addProduto(Produto produto){ /*Enviar informações da chamada no BD */
-            listaProdutos.add(new Produto( produto.getCodigo(), produto.getNome(), produto.getPreco(), produto.getFabricante(), produto.getGarantia(), produto.getCategoria(), produto.getResponsavelCompra()));
+        public boolean addProduto(String nome, int quantidade, String modelo, String fabricante, float preço, String categoria) throws SQLException{ /*Enviar informações da chamada no BD */
+            c.createProduto(nome, quantidade, modelo, fabricante, preço, categoria);
+            return true;
         }
 
-        public Setor addSetor(String nome, String unidade){ /*Enviar informações da chamada no BD */
-            Setor setor = new Setor(nome, unidade);
-            listaSetores.add(setor);
-            return setor;
+        public boolean addSetor(String nome, String unidade) throws SQLException{ 
+            c.createSetor(nome, unidade);
+            return true;
         }
 
         public Cliente criarCliente(String nome, String dataNascimento, String CPF, String RG){ /*Enviar informações da chamada no BD */
