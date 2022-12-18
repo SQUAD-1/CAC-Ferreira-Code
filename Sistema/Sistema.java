@@ -4,10 +4,17 @@ import java.util.*;
 import Objetos.*;
 import Entidades.*;
 import Grupos.*;
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import API.ConnectorDB;
+import API.Crud;
 
 public class Sistema {
     public Sistema(){
         System.out.println("Sistema criado!");
+        conn = ConnectorDB.getConnection();
+        c = new Crud();
     }
 
     /*Todas as listas vão deixar de existir e o programa vai passar a fazer requisições ao BD */
@@ -16,28 +23,35 @@ public class Sistema {
     private List<Chamado> listaChamados = new ArrayList<>();
     private List<Pedido> listaPedidos = new ArrayList<>();
     private List<Cliente> listaClientes = new ArrayList<>();
-    private List<Produto> listaProdutos = new ArrayList<>();
-    private List<Usuario> listaUsuarios = new ArrayList<>();
     private List<Setor> listaSetores = new ArrayList<>();
+    private List<Produto> listaProdutos = new ArrayList<>();
+    Crud c;
+    Connection conn;
 
     private int actions = 0; // Toda ação feita deve incrementar essa variável
 
-    public boolean auth(String email, String senha){
+    public boolean auth(String email) throws SQLException{
         boolean authcheck = false;
-        for (Usuario usuarios : listaUsuarios){
-            if (email.equals(usuarios.getEmail()) && senha.equals(senha)){
+        
+        for (String usuarios : c.read("funcionario")){
+            if (email.equals(usuarios)){
                 authcheck = true;
+                System.out.println("Acesso permitido!");
             }
+            
+        }
+        if (!authcheck){
+            System.out.println("Acesso negado!");
         }
         return authcheck;
     }
-    public Object consulta(String tipo, String palavraChave){   /*Mudar lógica para consultar informações no BD e comparar a palavra chave com o nome dos produto do bd*/
+    public Object consulta(String tipo, String palavraChave) throws SQLException{  
         Object result = new Object();
 
         if (tipo.equals("produto")){
-            for (Produto produtos : listaProdutos){
-                if (palavraChave.contains(produtos.getNome())){
-                    result = (Object) produtos;
+            for (String produtos : c.read("produto")){
+                if (palavraChave.contains(produtos)){
+                    result = (Object) produtos;         // criar dicionário
                     System.out.println("Produto encontrado!");
                 }
                 else{
@@ -47,9 +61,9 @@ public class Sistema {
         }
 
         else if(tipo.equals("cliente")){
-            for (Cliente clientes : listaClientes){
-                if (palavraChave.contains(clientes.getNomeCompleto())){
-                    result = (Object) clientes;
+            for (String clientes : c.read("cliente")){
+                if (palavraChave.contains(clientes)){
+                    result = (Object) clientes;        // criar dicionário
                 }
                 else{
                     System.out.println("Produto não encontrado");
@@ -58,9 +72,9 @@ public class Sistema {
         }
 
         else if (tipo.equals("setor")){
-            for (Setor setores : listaSetores){
+            for (String setores : c.read("cliente")){
                 if (palavraChave.equals(setores)){
-                    result = (Object) setores;
+                    result = (Object) setores;      // criar dicionário
                 }
             }
         }
@@ -70,18 +84,15 @@ public class Sistema {
             }
             return result;
         }
-        public Atendimento abrirAtendimento(Cliente cliente, String motivo, String canal, Setor setor){  /*Enviar informações da chamada no BD */
-            Atendimento atendimento = new Atendimento(cliente,motivo, canal, setor);
-            listaAtendimentos.add(atendimento);
-            cliente.addListaAtendimentos(atendimento);
-            return atendimento;
+
+        public boolean abrirAtendimento(String cpf, String motivo, String canal, String prioridade, String DataAbertura, float SLA, int idfuncionario) throws SQLException{  /*Enviar informações da chamada no BD */
+            c.createAtendimento(prioridade, motivo, canal, DataAbertura, SLA, idfuncionario, cpf);
+            return true;
         }
 
-        public Chamado abrirChamado(Cliente cliente, Atendimento atendimento, String tipo, String impacto, String prioridade){ /*Enviar informações da chamada no BD */
-            Chamado chamado = new Chamado(cliente, atendimento, tipo, impacto, prioridade);
-            listaChamados.add(chamado);
-            cliente.addListaChamados(chamado);
-            return chamado;
+        public boolean abrirChamado(String cpf, String motivo, String canal, String dataAbertura, String prioridade, float SLA, int idFuncionario) throws SQLException{ /*Enviar informações da chamada no BD */
+            c.createChamado(prioridade, motivo, canal, dataAbertura, SLA, idFuncionario, cpf);
+            return true;
         }
 
         public void fecharChamado(Chamado chamado){  /*Mudar Status do chamado no BD para fechado */
@@ -93,14 +104,14 @@ public class Sistema {
             }
         }
 
-        public void addProduto(Produto produto){ /*Enviar informações da chamada no BD */
-            listaProdutos.add(new Produto( produto.getCodigo(), produto.getNome(), produto.getPreco(), produto.getFabricante(), produto.getGarantia(), produto.getCategoria(), produto.getResponsavelCompra()));
+        public boolean addProduto(String nome, int quantidade, String modelo, String fabricante, float preço, String categoria) throws SQLException{ /*Enviar informações da chamada no BD */
+            c.createProduto(nome, quantidade, modelo, fabricante, preço, categoria);
+            return true;
         }
 
-        public Setor addSetor(String nome, String unidade){ /*Enviar informações da chamada no BD */
-            Setor setor = new Setor(nome, unidade);
-            listaSetores.add(setor);
-            return setor;
+        public boolean addSetor(String nome, String unidade) throws SQLException{ 
+            c.createSetor(nome, unidade);
+            return true;
         }
 
         public Cliente criarCliente(String nome, String dataNascimento, String CPF, String RG){ /*Enviar informações da chamada no BD */
